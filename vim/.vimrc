@@ -90,10 +90,6 @@ set hidden
 " Modifiers
 """"""""""""""""""""""""""""""""""""""""""""""
 
-nmap fw   :w<CR>
-nmap fq   :q<CR>
-nmap fwq  :wq<CR>
-
 " Leader
 """"""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "       " leader is space
