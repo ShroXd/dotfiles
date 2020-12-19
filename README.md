@@ -4,3 +4,4 @@ Custom dotfiles for:
 - hammerspoon
 - tmux
 - vim
+- zsh
