@@ -16,6 +16,7 @@ Plug 'preservim/tagbar'         " Pane with tags
 " Text Manipulation
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}       " multiple selections
 Plug 'tpope/vim-surround'                                 " Surround with parentheses & co
+Plug 'gabrielelana/vim-markdown'                          " Markdown support
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}           " so why should I use vim
@@ -115,4 +116,23 @@ set hidden
 " Leader
 """"""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "       " leader is space
+
+
+" ====================================================
+"    Script 
+" ====================================================
+
+" insert image path & auto formatting it
+function! MarkdownImageInsert()
+  call inputsave()
+  let dir = input('Image dir: ')
+  call inputrestore()
+  
+  execute "normal! o![]"
+  let pos = getcurpos()
+  execute "normal! a(" . dir . ")"
+  call setpos('.', pos)
+endfunction
+
+nmap <leader>i :call MarkdownImageInsert()<CR>
 
