@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 ##########################################################
 
 alias c="clear"
+alias t="tmux"
 alias gs="git status -s"
 alias gl="git log --oneline --decorate --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
