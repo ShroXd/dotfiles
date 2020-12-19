@@ -5,7 +5,6 @@
 ##########################################################
 
 export ZSH="/Users/spike/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME=jispwoso
 
@@ -15,7 +14,7 @@ plugins=(
   zsh-autosuggestions
 )
 
-
+source $ZSH/oh-my-zsh.sh
 
 
 ##########################################################
