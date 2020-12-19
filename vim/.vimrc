@@ -1,4 +1,4 @@
-"====================================================
+" ====================================================
 "    PLUGINS
 " ====================================================
 
@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 " GUI enhancements
 Plug 'preservim/nerdtree'       " File Explorer
 Plug 'itchyny/lightline.vim'    " Better Status Bar
+Plug 'preservim/tagbar'         " Pane with tags
 
 " Text Manipulation
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}       " multiple selections
@@ -19,23 +20,27 @@ Plug 'tpope/vim-surround'                                 " Surround with parent
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}           " so why should I use vim
 
+" Theme
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 
-"====================================================
+" ====================================================
 "    PLUGINS SETTING
 " ====================================================
 
 " fzf
 """"""""""""""""""""""""""""""""""""""""""""""
-map ; :Files<CR>
-map ' :Commits<CR>
+map ] :Windows<CR>
+map , :Files<CR>
+map . :BCommits<CR>
 let g:fzf_layout = { 'down': '~30%' }
 
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1      " show hidden file in nerd tree
-map <C-e> :NERDTreeToggle<CR>
+map ; :NERDTreeToggle<CR>
 
 " lightline
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -46,7 +51,24 @@ let g:lightline = {
   \     }
   \ }
 
-" lightline
+" Tagbar
+""""""""""""""""""""""""""""""""""""""""""""""
+map ' :TagbarToggle<CR>
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
+
+" coc
 """"""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [
       \'coc-tsserver',
@@ -58,7 +80,7 @@ let g:coc_global_extensions = [
 
 " Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""
-colorscheme default
+colorscheme gruvbox
 
 " Space & Tabs
 """"""""""""""""""""""""""""""""""""""""""""""
