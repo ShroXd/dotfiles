@@ -101,6 +101,17 @@ set ttyfast               " improve redrawing
 set laststatus=2          " show the status line at the bottom
 set noshowmode            " lightline shows status
 
+" Cursor
+""""""""""""""""""""""""""""""""""""""""""""""
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Optionally reset the cursor on start:
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
 " Buffers
 """"""""""""""""""""""""""""""""""""""""""""""
 set hidden
@@ -136,3 +147,17 @@ endfunction
 
 nmap <leader>i :call MarkdownImageInsert()<CR>
 
+
+" insert link path & auto formatting it
+function! MarkdownLinkInsert()
+  call inputsave()
+  let dir = input('Link dir: ')
+  call inputrestore()
+  
+  execute "normal! a[]"
+  let pos = getcurpos()
+  execute "normal! a(" . dir . ")"
+  call setpos('.', pos)
+endfunction
+
+nmap <leader>l :call MarkdownLinkInsert()<CR>
