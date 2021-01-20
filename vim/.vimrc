@@ -82,6 +82,7 @@ let g:coc_global_extensions = [
 " Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""
 colorscheme gruvbox
+set background=dark
 
 " Space & Tabs
 """"""""""""""""""""""""""""""""""""""""""""""
